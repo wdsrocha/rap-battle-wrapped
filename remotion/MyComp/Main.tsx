@@ -8,12 +8,9 @@ import {
 } from "remotion";
 import { CompositionProps } from "../../types/constants";
 import { NextLogo } from "./NextLogo";
-import { loadFont, fontFamily } from "@remotion/google-fonts/Inter";
-import React, { useMemo } from "react";
+import React from "react";
 import { Rings } from "./Rings";
 import { TextFade } from "./TextFade";
-
-loadFont();
 
 const container: React.CSSProperties = {
   backgroundColor: "white",
@@ -41,10 +38,6 @@ export const Main = ({ title }: z.infer<typeof CompositionProps>) => {
     delay: transitionStart,
   });
 
-  const titleStyle: React.CSSProperties = useMemo(() => {
-    return { fontFamily, fontSize: 70 };
-  }, []);
-
   return (
     <AbsoluteFill style={container}>
       <Sequence durationInFrames={transitionStart + transitionDuration}>
@@ -55,7 +48,7 @@ export const Main = ({ title }: z.infer<typeof CompositionProps>) => {
       </Sequence>
       <Sequence from={transitionStart + transitionDuration / 2}>
         <TextFade>
-          <h1 style={titleStyle}>{title}</h1>
+          <h1 className="text-8xl">{title}</h1>
         </TextFade>
       </Sequence>
     </AbsoluteFill>

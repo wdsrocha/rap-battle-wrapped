@@ -14,26 +14,6 @@ import {
 } from "../types/constants";
 import { z } from "zod";
 import { RenderControls } from "../components/RenderControls";
-import { Tips } from "../components/Tips/Tips";
-import { Spacing } from "../components/Spacing";
-
-const container: React.CSSProperties = {
-  maxWidth: 768,
-  margin: "auto",
-  marginBottom: 20,
-};
-
-const outer: React.CSSProperties = {
-  borderRadius: "var(--geist-border-radius)",
-  overflow: "hidden",
-  boxShadow: "0 0 200px rgba(0, 0, 0, 0.15)",
-  marginBottom: 40,
-  marginTop: 60,
-};
-
-const player: React.CSSProperties = {
-  width: "100%",
-};
 
 const Home: NextPage = () => {
   const [text, setText] = useState<string>(defaultMyCompProps.title);
@@ -46,8 +26,8 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <div style={container}>
-        <div className="cinematics" style={outer}>
+      <div className="m-auto max-w-lg">
+        <div className="cinematics shadow-lg">
           <Player
             component={Main}
             inputProps={inputProps}
@@ -55,22 +35,15 @@ const Home: NextPage = () => {
             fps={VIDEO_FPS}
             compositionHeight={VIDEO_HEIGHT}
             compositionWidth={VIDEO_WIDTH}
-            style={player}
+            style={{
+              width: "100%",
+            }}
             controls
             autoPlay
             loop
           />
         </div>
-        <RenderControls
-          text={text}
-          setText={setText}
-          inputProps={inputProps}
-        ></RenderControls>
-        <Spacing></Spacing>
-        <Spacing></Spacing>
-        <Spacing></Spacing>
-        <Spacing></Spacing>
-        <Tips></Tips>
+        <RenderControls text={text} setText={setText} inputProps={inputProps} />
       </div>
     </div>
   );
