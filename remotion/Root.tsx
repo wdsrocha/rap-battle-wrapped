@@ -10,6 +10,7 @@ import {
 } from "../types/constants";
 import { NextLogo } from "./MyComp/NextLogo";
 import "../styles/global.css";
+import { WinRateScene, WinRateSceneProps } from "./WinRateScene";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -32,6 +33,20 @@ export const RemotionRoot: React.FC = () => {
         height={140}
         defaultProps={{
           outProgress: 0,
+        }}
+      />
+      <Composition
+        id="WinRateScene"
+        component={WinRateScene}
+        schema={WinRateSceneProps}
+        durationInFrames={150}
+        height={VIDEO_HEIGHT}
+        width={VIDEO_WIDTH}
+        fps={VIDEO_FPS}
+        defaultProps={{
+          matchesParticipated: 233,
+          tournamentsParticipated: 95,
+          matchesWon: 156,
         }}
       />
     </>
