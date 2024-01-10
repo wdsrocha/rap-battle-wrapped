@@ -17,7 +17,6 @@ export const WinRateSceneProps = z.object({
 });
 
 const WinRateSequenceProps = z.object({
-  from: z.number(),
   totalMatches: z.number(),
   wonMatches: z.number(),
 });
@@ -30,9 +29,9 @@ const interpolateDigits = (frame: number, fps: number, goal: number) =>
     extrapolateRight: "clamp",
   });
 
-const WinRateSequence = (props: z.infer<typeof WinRateSequenceProps>) => {
+const WinRate = (props: z.infer<typeof WinRateSequenceProps>) => {
   const { height, fps } = useVideoConfig();
-  const frame = useCurrentFrame() - props.from;
+  const frame = useCurrentFrame();
 
   const anotherContentTranslation = interpolate(
     spring({
@@ -71,43 +70,41 @@ const WinRateSequence = (props: z.infer<typeof WinRateSequenceProps>) => {
   );
 
   return (
-    <Sequence from={props.from}>
-      <AbsoluteFill
-        style={{
-          top: height / 2,
-          transform: `translateY(${anotherContentTranslation}px)`,
-        }}
-      >
-        <div className="flex w-full flex-col items-center gap-y-16">
-          <div className="flex w-full items-center justify-evenly">
-            <div className="items-left flex flex-col gap-y-4">
-              <span className="text-7xl font-semibold text-green-500">
-                👍 {wr}%
-              </span>
-              <span className="text-4xl text-slate-400">
-                {props.wonMatches} vitórias
-              </span>
-            </div>
-            <div className="items-left flex flex-col gap-y-4">
-              <span className="text-7xl font-semibold text-slate-400">
-                👎 {lr}%
-              </span>
-              <span className="text-4xl text-slate-400">
-                {lostMatches} derrotas
-              </span>
-            </div>
+    <AbsoluteFill
+      style={{
+        top: height / 2,
+        transform: `translateY(${anotherContentTranslation}px)`,
+      }}
+    >
+      <div className="flex w-full flex-col items-center gap-y-16">
+        <div className="flex w-full items-center justify-evenly">
+          <div className="items-left flex flex-col gap-y-4">
+            <span className="text-7xl font-semibold text-green-500">
+              👍 {wr}%
+            </span>
+            <span className="text-4xl text-slate-400">
+              {props.wonMatches} vitórias
+            </span>
           </div>
-          <div className="w-full max-w-3xl">
-            <div className="h-2.5 w-full rounded-full bg-slate-700">
-              <div
-                className="h-2.5 rounded-full bg-green-500"
-                style={{ width: `${animatedWinRate}%` }}
-              ></div>
-            </div>
+          <div className="items-left flex flex-col gap-y-4">
+            <span className="text-7xl font-semibold text-slate-400">
+              👎 {lr}%
+            </span>
+            <span className="text-4xl text-slate-400">
+              {lostMatches} derrotas
+            </span>
           </div>
         </div>
-      </AbsoluteFill>
-    </Sequence>
+        <div className="w-full max-w-3xl">
+          <div className="h-2.5 w-full rounded-full bg-slate-700">
+            <div
+              className="h-2.5 rounded-full bg-green-500"
+              style={{ width: `${animatedWinRate}%` }}
+            ></div>
+          </div>
+        </div>
+      </div>
+    </AbsoluteFill>
   );
 };
 
@@ -180,11 +177,12 @@ export const WinRateScene = (props: z.infer<typeof WinRateSceneProps>) => {
         </AbsoluteFill>
       </Sequence>
 
-      <WinRateSequence
-        from={SECOND_SEQUENCE_START}
-        totalMatches={props.matchesParticipated}
-        wonMatches={matchesWon}
-      />
+      <Sequence from={SECOND_SEQUENCE_START}>
+        <WinRate
+          totalMatches={props.matchesParticipated}
+          wonMatches={matchesWon}
+        />
+      </Sequence>
     </AbsoluteFill>
   );
 };

@@ -40,7 +40,7 @@ export const RemotionRoot: React.FC = () => {
         id="WinRateScene"
         component={WinRateScene}
         schema={WinRateSceneProps}
-        durationInFrames={2 * VIDEO_FPS}
+        durationInFrames={5 * VIDEO_FPS}
         height={VIDEO_HEIGHT}
         width={VIDEO_WIDTH}
         fps={VIDEO_FPS}
