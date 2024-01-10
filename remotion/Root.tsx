@@ -1,4 +1,4 @@
-import { Composition } from "remotion";
+import { Composition, Still } from "remotion";
 import { Main } from "./MyComp/Main";
 import {
   COMP_NAME,
@@ -11,6 +11,7 @@ import {
 import { NextLogo } from "./MyComp/NextLogo";
 import "../styles/global.css";
 import { WinRateScene, WinRateSceneProps } from "./WinRateScene";
+import { FinalWrap, FinalWrapProps } from "./FinalWrap";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -39,7 +40,7 @@ export const RemotionRoot: React.FC = () => {
         id="WinRateScene"
         component={WinRateScene}
         schema={WinRateSceneProps}
-        durationInFrames={150}
+        durationInFrames={2 * VIDEO_FPS}
         height={VIDEO_HEIGHT}
         width={VIDEO_WIDTH}
         fps={VIDEO_FPS}
@@ -47,6 +48,25 @@ export const RemotionRoot: React.FC = () => {
           matchesParticipated: 233,
           tournamentsParticipated: 95,
           matchesWon: 156,
+        }}
+      />
+      <Still
+        id="FinalWrap"
+        component={FinalWrap}
+        schema={FinalWrapProps}
+        height={VIDEO_HEIGHT}
+        width={VIDEO_WIDTH}
+        defaultProps={{
+          nickname: "Pura",
+          matchesParticipated: 85,
+          tournamentsParticipated: 43,
+          matchesWon: 48,
+          titlesWon: 6,
+          finalsReached: 7,
+          favoriteHost: "Batalha da La Prata",
+          greatestRival: "Onec",
+          weakestFoe: "James",
+          strongestFoe: "Xavier",
         }}
       />
     </>

@@ -1,9 +1,8 @@
 "use client";
 
-import { Player } from "@remotion/player";
+import { Player, Thumbnail } from "@remotion/player";
 import type { NextPage } from "next";
 import React, { useMemo, useState } from "react";
-import { Main } from "../remotion/MyComp/Main";
 import {
   CompositionProps,
   defaultMyCompProps,
@@ -14,6 +13,8 @@ import {
 } from "../types/constants";
 import { z } from "zod";
 import { RenderControls } from "../components/RenderControls";
+import { FinalWrap } from "../remotion/FinalWrap";
+import { WinRateScene } from "../remotion/WinRateScene";
 
 const Home: NextPage = () => {
   const [text, setText] = useState<string>(defaultMyCompProps.title);
@@ -26,11 +27,22 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <div className="m-auto max-w-lg">
-        <div className="cinematics shadow-lg">
+      <div className="flex flex-col">
+        <div className="flex max-w-4xl items-center justify-center">
           <Player
-            component={Main}
-            inputProps={inputProps}
+            component={WinRateScene}
+            inputProps={{
+              nickname: "Pura",
+              matchesParticipated: 85,
+              tournamentsParticipated: 43,
+              matchesWon: 48,
+              titlesWon: 6,
+              finalsReached: 7,
+              favoriteHost: "Batalha da La Prata",
+              greatestRival: "Onec",
+              weakestFoe: "James",
+              strongestFoe: "Xavier",
+            }}
             durationInFrames={DURATION_IN_FRAMES}
             fps={VIDEO_FPS}
             compositionHeight={VIDEO_HEIGHT}
@@ -41,6 +53,29 @@ const Home: NextPage = () => {
             controls
             autoPlay
             loop
+          />
+          <Thumbnail
+            component={FinalWrap}
+            inputProps={{
+              nickname: "Pura",
+              matchesParticipated: 85,
+              tournamentsParticipated: 43,
+              matchesWon: 48,
+              titlesWon: 6,
+              finalsReached: 7,
+              favoriteHost: "Batalha da La Prata",
+              greatestRival: "Onec",
+              weakestFoe: "James",
+              strongestFoe: "Xavier",
+            }}
+            durationInFrames={DURATION_IN_FRAMES}
+            frameToDisplay={0}
+            fps={VIDEO_FPS}
+            compositionHeight={VIDEO_HEIGHT}
+            compositionWidth={VIDEO_WIDTH}
+            style={{
+              width: "100%",
+            }}
           />
         </div>
         <RenderControls text={text} setText={setText} inputProps={inputProps} />
