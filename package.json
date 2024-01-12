@@ -12,6 +12,8 @@
     "deploy": "node deploy.mjs"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
     "@remotion/bundler": "4.0.83",
     "@remotion/cli": "4.0.83",
     "@remotion/google-fonts": "4.0.83",
@@ -33,6 +35,8 @@
   "devDependencies": {
     "@remotion/eslint-config": "4.0.83",
     "@remotion/tailwind": "^4.0.84",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "18.7.23",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.6",

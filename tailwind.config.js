@@ -8,7 +8,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./remotion/**/*.{js,ts,tsx,mdx}",
   ],
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
   theme: {
     fontFamily: {
       sans: ["Inter var", ...defaultTheme.fontFamily.sans],
