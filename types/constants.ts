@@ -1,12 +1,11 @@
 import { z } from "zod";
-export const COMP_NAME = "RapBattleWrapped2023";
 
 export const CompositionProps = z.object({
   title: z.string(),
 });
 
 export const defaultMyCompProps: z.infer<typeof CompositionProps> = {
-  title: "Xavier",
+  title: "Pura",
 };
 
 export const DURATION_IN_FRAMES = 200;

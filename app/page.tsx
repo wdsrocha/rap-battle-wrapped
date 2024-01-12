@@ -26,60 +26,65 @@ const Home: NextPage = () => {
   }, [text]);
 
   return (
-    <div>
-      <div className="flex flex-col">
-        <div className="flex max-w-4xl items-center justify-center">
-          <Player
-            component={WinRateScene}
-            inputProps={{
-              nickname: "Pura",
-              matchesParticipated: 85,
-              tournamentsParticipated: 43,
-              matchesWon: 48,
-              titlesWon: 6,
-              finalsReached: 7,
-              favoriteHost: "Batalha da La Prata",
-              greatestRival: "Onec",
-              weakestFoe: "James",
-              strongestFoe: "Xavier",
-            }}
-            durationInFrames={DURATION_IN_FRAMES}
-            fps={VIDEO_FPS}
-            compositionHeight={VIDEO_HEIGHT}
-            compositionWidth={VIDEO_WIDTH}
-            style={{
-              width: "100%",
-            }}
-            controls
-            autoPlay
-            loop
-          />
-          <Thumbnail
-            component={FinalWrap}
-            inputProps={{
-              nickname: "Pura",
-              matchesParticipated: 85,
-              tournamentsParticipated: 43,
-              matchesWon: 48,
-              titlesWon: 6,
-              finalsReached: 7,
-              favoriteHost: "Batalha da La Prata",
-              greatestRival: "Onec",
-              weakestFoe: "James",
-              strongestFoe: "Xavier",
-            }}
-            durationInFrames={DURATION_IN_FRAMES}
-            frameToDisplay={0}
-            fps={VIDEO_FPS}
-            compositionHeight={VIDEO_HEIGHT}
-            compositionWidth={VIDEO_WIDTH}
-            style={{
-              width: "100%",
-            }}
-          />
-        </div>
-        <RenderControls text={text} setText={setText} inputProps={inputProps} />
+    <div className="flex flex-col items-center">
+      <div className="w-64">
+        <Player
+          component={WinRateScene}
+          inputProps={{
+            nickname: "Pura",
+            matchesParticipated: 85,
+            tournamentsParticipated: 43,
+            matchesWon: 48,
+            titlesWon: 6,
+            finalsReached: 7,
+            favoriteHost: "Batalha da La Prata",
+            greatestRival: "Onec",
+            weakestFoe: "James",
+            strongestFoe: "Xavier",
+          }}
+          durationInFrames={DURATION_IN_FRAMES}
+          fps={VIDEO_FPS}
+          compositionHeight={VIDEO_HEIGHT}
+          compositionWidth={VIDEO_WIDTH}
+          style={{
+            width: "100%",
+          }}
+          controls
+          autoPlay
+          loop
+        />
       </div>
+      <div className="w-64">
+        <Thumbnail
+          component={FinalWrap}
+          inputProps={{
+            nickname: text,
+            matchesParticipated: 85,
+            tournamentsParticipated: 43,
+            matchesWon: 48,
+            titlesWon: 6,
+            finalsReached: 7,
+            favoriteHost: "Batalha da La Prata",
+            greatestRival: "Onec",
+            weakestFoe: "James",
+            strongestFoe: "Xavier",
+          }}
+          durationInFrames={DURATION_IN_FRAMES}
+          frameToDisplay={0}
+          fps={VIDEO_FPS}
+          compositionHeight={VIDEO_HEIGHT}
+          compositionWidth={VIDEO_WIDTH}
+          style={{
+            width: "100%",
+          }}
+        />
+      </div>
+      <RenderControls
+        compositionName="WinRateScene"
+        text={text}
+        setText={setText}
+        inputProps={inputProps}
+      />
     </div>
   );
 };
