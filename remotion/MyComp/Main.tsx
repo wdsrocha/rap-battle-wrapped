@@ -12,6 +12,7 @@ export const Main = ({ title }: z.infer<typeof CompositionProps>) => {
     <TransitionSeries>
       <TransitionSeries.Sequence durationInFrames={3 * fps}>
         <WinRateScene
+          nickname="Pura"
           matchesParticipated={10}
           matchesWon={1}
           tournamentsParticipated={9}
@@ -19,6 +20,7 @@ export const Main = ({ title }: z.infer<typeof CompositionProps>) => {
       </TransitionSeries.Sequence>
       <TransitionSeries.Sequence durationInFrames={3 * fps}>
         <WinRateScene
+          nickname="Pura"
           matchesParticipated={10}
           matchesWon={1}
           tournamentsParticipated={9}
