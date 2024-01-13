@@ -11,6 +11,7 @@ import {
 import React from "react";
 
 export const WinRateSceneProps = z.object({
+  nickname: z.string(),
   matchesParticipated: z.number(),
   tournamentsParticipated: z.number(),
   matchesWon: z.number(),
@@ -154,6 +155,10 @@ export const WinRateScene = (props: z.infer<typeof WinRateSceneProps>) => {
             transform: `translateY(${contentTranslation}px)`,
           }}
         >
+          {/* TODO: remove later. only for testing */}
+          {/* <span className="mb-8 w-full text-center uppercase">
+            MC {props.nickname}
+          </span> */}
           <div className="flex items-center justify-evenly">
             <div className="flex flex-col items-center gap-y-4">
               <span className="text-8xl font-semibold">
