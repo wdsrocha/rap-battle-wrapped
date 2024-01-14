@@ -43,6 +43,7 @@ export const RemotionRoot: React.FC = () => {
         width={VIDEO_WIDTH}
         fps={VIDEO_FPS}
         defaultProps={{
+          nickname: "Pura",
           matchesParticipated: 233,
           tournamentsParticipated: 95,
           matchesWon: 156,
