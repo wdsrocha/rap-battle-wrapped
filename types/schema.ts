@@ -25,3 +25,12 @@ export type ProgressResponse =
       url: string;
       size: number;
     };
+
+export const Stats = z.object({
+  nickname: z.string(),
+  tournaments: z.number().nonnegative(),
+  titles: z.number().nonnegative(),
+  finals: z.number().nonnegative(),
+});
+
+export type Stats = z.infer<typeof Stats>;

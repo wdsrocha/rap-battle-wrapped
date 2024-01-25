@@ -10,6 +10,16 @@ import { NextLogo } from "./MyComp/NextLogo";
 import "../styles/global.css";
 import { WinRateScene, WinRateSceneProps } from "./WinRateScene";
 import { FinalWrap, FinalWrapProps } from "./FinalWrap";
+import { IntroScene } from "./IntroScene";
+import { Stats } from "../types/schema";
+import { TitlesScene } from "./TitlesScene";
+
+const defaultProps: Stats = {
+  nickname: "Big Xang",
+  tournaments: 32,
+  titles: 7,
+  finals: 13,
+};
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -17,7 +27,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="Main"
         component={Main}
-        durationInFrames={5 * VIDEO_FPS}
+        durationInFrames={20 * VIDEO_FPS}
         fps={VIDEO_FPS}
         width={VIDEO_WIDTH}
         height={VIDEO_HEIGHT}
@@ -35,10 +45,20 @@ export const RemotionRoot: React.FC = () => {
         }}
       />
       <Composition
+        id="IntroScene"
+        component={IntroScene}
+        schema={Stats}
+        durationInFrames={5 * VIDEO_FPS}
+        height={VIDEO_HEIGHT}
+        width={VIDEO_WIDTH}
+        fps={VIDEO_FPS}
+        defaultProps={defaultProps}
+      />
+      <Composition
         id="WinRateScene"
         component={WinRateScene}
         schema={WinRateSceneProps}
-        durationInFrames={5 * VIDEO_FPS}
+        durationInFrames={4 * VIDEO_FPS}
         height={VIDEO_HEIGHT}
         width={VIDEO_WIDTH}
         fps={VIDEO_FPS}
@@ -48,6 +68,16 @@ export const RemotionRoot: React.FC = () => {
           tournamentsParticipated: 95,
           matchesWon: 156,
         }}
+      />
+      <Composition
+        id="TitlesScene"
+        component={TitlesScene}
+        schema={Stats}
+        durationInFrames={6 * VIDEO_FPS}
+        height={VIDEO_HEIGHT}
+        width={VIDEO_WIDTH}
+        fps={VIDEO_FPS}
+        defaultProps={defaultProps}
       />
       <Still
         id="FinalWrap"
