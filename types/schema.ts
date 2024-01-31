@@ -31,6 +31,17 @@ export const Stats = z.object({
   tournaments: z.number().nonnegative(),
   titles: z.number().nonnegative(),
   finals: z.number().nonnegative(),
+  favoriteHost: z.string(),
+  favoriteHostFreq: z.number().nonnegative(),
+  rival: z.string(),
+  rivalWins: z.number().nonnegative(),
+  rivalLosses: z.number().nonnegative(),
+  weakestFoe: z.string(),
+  weakestFoeWins: z.number().nonnegative(),
+  weakestFoeLosses: z.number().nonnegative(),
+  strongestFoe: z.string(),
+  strongestFoeWins: z.number().nonnegative(),
+  strongestFoeLosses: z.number().nonnegative(),
 });
 
 export type Stats = z.infer<typeof Stats>;
