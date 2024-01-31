@@ -15,9 +15,15 @@ export const IntroScene = (props: z.infer<typeof Stats>) => {
             <h1 className="text-center text-8xl font-semibold">{nickname}</h1>
           </Display>
         </Series.Sequence>
-        <Series.Sequence durationInFrames={2 * fps}>
-          <Display className="flex flex-col items-center gap-y-16">
-            <p className="text-7xl">Veja seu ano como MC</p>
+        <Series.Sequence durationInFrames={4 * fps}>
+          <Display>
+            <p className="text-center text-7xl">Veja seu ano como MC</p>
+          </Display>
+          <Display keyframes={[{ delay: fps, from: 80, delta: 80 }]}>
+            <p className="text-center text-4xl text-slate-400">
+              Com os dados coletados pelo{" "}
+              <span className="text-slate-50">@am._news</span>
+            </p>
           </Display>
         </Series.Sequence>
       </Series>
