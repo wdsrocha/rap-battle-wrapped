@@ -13,12 +13,25 @@ import { FinalWrap, FinalWrapProps } from "./FinalWrap";
 import { IntroScene } from "./IntroScene";
 import { Stats } from "../types/schema";
 import { TitlesScene } from "./TitlesScene";
+import { FavoriteHostScene } from "./FavoriteHostScene";
+import { RivalScene } from "./RivalScene";
 
 const defaultProps: Stats = {
   nickname: "Big Xang",
   tournaments: 32,
   titles: 7,
   finals: 13,
+  favoriteHost: "Batalha do Passarinho",
+  favoriteHostFreq: 17,
+  rival: "Onec",
+  rivalWins: 9,
+  rivalLosses: 7,
+  weakestFoe: "James",
+  weakestFoeWins: 13,
+  weakestFoeLosses: 2,
+  strongestFoe: "Xavier",
+  strongestFoeWins: 0,
+  strongestFoeLosses: 7,
 };
 
 export const RemotionRoot: React.FC = () => {
@@ -72,6 +85,26 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="TitlesScene"
         component={TitlesScene}
+        schema={Stats}
+        durationInFrames={6 * VIDEO_FPS}
+        height={VIDEO_HEIGHT}
+        width={VIDEO_WIDTH}
+        fps={VIDEO_FPS}
+        defaultProps={defaultProps}
+      />
+      <Composition
+        id="FavoriteHostScene"
+        component={FavoriteHostScene}
+        schema={Stats}
+        durationInFrames={6 * VIDEO_FPS}
+        height={VIDEO_HEIGHT}
+        width={VIDEO_WIDTH}
+        fps={VIDEO_FPS}
+        defaultProps={defaultProps}
+      />
+      <Composition
+        id="RivalScene"
+        component={RivalScene}
         schema={Stats}
         durationInFrames={6 * VIDEO_FPS}
         height={VIDEO_HEIGHT}
