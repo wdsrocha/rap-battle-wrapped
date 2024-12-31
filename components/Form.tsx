@@ -153,7 +153,7 @@ export function Form(props: Props) {
           "*:text-black",
         )}
         value={props.id}
-        onChange={(event) => {
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
           const selectedId = parseInt(event.target.value, 10);
           const selectedMc = mcs.find((mc) => mc.id === selectedId);
           if (selectedMc) {
