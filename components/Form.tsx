@@ -135,7 +135,9 @@ const nicknames: string[] = [
   "Woody",
 ];
 
-const mcs: MC[] = nicknames.map((nickname, id) => ({ id: id + 1, nickname })); // 1-indexed
+const mcs: MC[] = nicknames
+  .map((nickname, id) => ({ id: id + 1, nickname }))
+  .sort((a, b) => a.nickname.localeCompare(b.nickname));
 
 interface Props {
   id: number;
@@ -146,6 +148,7 @@ export function Form(props: Props) {
   return (
     <Field>
       <Select
+        defaultValue={5}
         className={classNames(
           "mt-3 block w-full appearance-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white",
           "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
