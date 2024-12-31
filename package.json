@@ -12,7 +12,7 @@
     "deploy": "node deploy.mjs"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18",
+    "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.1",
     "@remotion/bundler": "4.0.83",
     "@remotion/cli": "4.0.83",

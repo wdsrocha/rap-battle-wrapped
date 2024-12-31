@@ -6,9 +6,8 @@ import { Form } from "../components/Form";
 import { useRouter } from "next/navigation";
 
 const Home: NextPage = () => {
-  const [value, setValue] = useState("");
+  const [id, setId] = useState(0);
   const router = useRouter();
-
   return (
     <div className="mx-auto flex h-screen max-w-lg flex-col justify-evenly px-4 py-2 md:px-6 md:py-4">
       <div className="mt-8 flex h-full flex-col items-center justify-center gap-y-8">
@@ -19,14 +18,13 @@ const Home: NextPage = () => {
           </h1>
         </header>
 
-        {/* TODO: descobrir pq alterar o form quebra o embed */}
         <div className="flex w-full flex-col gap-y-4">
-          <Form value={value} setValue={setValue} />
+          <Form id={id} setId={setId} />
           <button
             type="button"
             className="w-full rounded-md bg-orange-500 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             onClick={() => {
-              router.push(`/${encodeURIComponent(value)}`);
+              router.push(`/${encodeURIComponent(id)}`);
             }}
           >
             Ver minha retrospectiva!
