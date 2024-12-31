@@ -46,7 +46,7 @@ export const RivalScene = (props: z.infer<typeof Stats>) => {
           <Display
             keyframes={[
               { delay: 0, from: 0, delta: 100 },
-              { delay: 1.5 * fps, from: -120, delta: 80 },
+              { delay: 2 * fps, from: -120, delta: 80 },
             ]}
           >
             <div className="flex flex-col items-center gap-y-4 text-slate-400">
@@ -61,7 +61,7 @@ export const RivalScene = (props: z.infer<typeof Stats>) => {
               </p>
             </div>
           </Display>
-          <Display keyframes={[{ delay: 1.5 * fps, from: 200, delta: 80 }]}>
+          <Display keyframes={[{ delay: 2 * fps, from: 200, delta: 80 }]}>
             <div className="flex w-full items-center justify-center gap-x-8 font-mono text-slate-400">
               <div className="flex items-center gap-x-4">
                 <span>

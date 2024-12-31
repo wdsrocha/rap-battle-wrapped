@@ -3,16 +3,141 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { Combobox } from "@headlessui/react";
 import classNames from "classnames";
 
-interface People {
+interface MC {
   id: number;
-  name: string;
+  nickname: string;
 }
 
-// TODO: receive as props
-const people: People[] =
-  "Xavier, Onec, Enma, Jhones, Mano P, Mont, RK, Menor, James, Big Xang, W, Coy, Magrinho, Hope, Pura, Elle, Pain, Akbar, Sharp, Tarantino, Killer, Blink, Drey, Android 17, Truu, Dark, Benevides, Teaz, Yuggo, Pedro, Smolk, Barb, Neon, Luan UDV, Coreto, Brown, Daoeste, WR, Isa, WS, Davieno, Jogadora, 3N, Calvert, Wasi, Niel, Salomão, Áries, Jottaemi, Will, Nando Kim, Ice Berg, Major, Matheuxx, Vitin, Akashi, Sério, teusin, Evy, Lelê, Mooze, Fontenelle, Manogê, Bety, DN7, Christian, MT, Zeca, PH, Menor Block, DMK, Yonathan, Turok, Castro, tiktok, Leon ZN, Kenny, Eva, JC, Lázaro, FL, LH, Dryka, Sagaz, WO, VH, Duel, Santos, Zack, King, Pires, Giza, Bambata, Sound, Espantalho, Mineiro, DK, Gusta, Gaspar, Kim, Cask, Jarbinha, Sky, Ban, Insano, Kisame, lazaro, Speed, Vini, Golden, Atnavick, Kani, Move, Acura, Matheus, Medusa, TH, Kane, Piula, Skank, LC, Pedrina, Ajota, Novato, Ton, Bean, Kinze, Kappa, Enok, Gui, JM, Mart, Primatinha, Tux, Jorgin, RD, Vinny, Zoom, aries, Cacique, Hotep, Jhzin, Moove, Noan, Ace, andarilho, BXX, cafeina, Dog, GC, Jhonx, Soneca, WK, BabyBoy, BL, Dadinho, DL, Dyego, JV, Miles, MR, Noa, Roog, Street, Rarock, Davi, FP Swag, guilherme, Veneza, Constantine, Gkazin, Kanope, ND7, Railan, Rasta, ronnyn, Suit, Yan, 15, Bactéria, Brizzy, Bronw, Calvin, CHS, Colares, Dan Dan, Daoest, Delta, gabriel, GH, gs, jenkins, Juninho, Kaene, KRK, Menor Lc, MP, Sissinho, Thug, TK, VAN, Verdinho, wl, Biels, FP, Uddy, Átila, Das Ruas, Otavio, TG, Wold, Andrade, Bankai, Black, Caleb, Canibal, DG, Dinho Brau, Droca, Eddy, Erva, FerNando Kim, Gueren, Japinha, JN, Jota, kanibal, Kill, Marlyson, mateuzin, Matheuzinho, PTK, Riff, Zezinho, , 76, Akura, Andreo, Asaf, Barbosa, Bentes, bia, Black Silva, Boladão, Brok, Bruno, Cabralzin, Cafeína, Caff, Caise, Calebe, Caliste, Camuca, Canw, CAP, Cavieira, Chef, Chico, Cicinho, Cirilo, constatine, d2, Dan, Daniel, Danni, DF, Dream, Droka, Dubaile, duzim, Erok, Félix, Felps, Flip, Flordkell, Gean, Gil, Gildo, gk, GMK, Gomes, Grego, Guinho, HJ, Ida, jhonatan, JhonZ, jimer, Jinx, JL, Jone, Kalvin, Kennyzin, Khakiffa, Kings, Layse, Leléo, Lex, Lil Soren, Liner, LK, Lucca, Macoli, Madrugão, manauara, mano df, Marcelo, Mark, Motoboy, Movie, N1, Nathan, Natividade, Nattan, neguinho da capital, Net, NF, Nilson, Noel, NV, Pai da Luna, PHL, Pombo, Portela, Pruma, Quinze, Rafa, RDS, Real le, RMS, RP, Sabota, Sanchez, Saori, Say, Scott, Silveira, SM, Solimões, solt, Spider, Tai, Tarja, Terry, ths, way, WM, Woddy, Xororo, zed, Zezi, Aj, Denni"
-    .split(", ")
-    .map((x, i) => ({ id: i + 2, name: x }));
+const nicknames: string[] = [
+  "Hope",
+  "Menor",
+  "Coy",
+  "Onec",
+  "Akbar",
+  "Pedro",
+  "Xavier",
+  "Benevides",
+  "Enma",
+  "RK",
+  "Killer",
+  "Mont",
+  "Drey",
+  "W",
+  "Android 17",
+  "Mano P",
+  "James",
+  "Knov",
+  "BMC",
+  "Cauã",
+  "Sharp",
+  "Isa",
+  "Colly",
+  "Kize",
+  "Big Xang",
+  "Pura",
+  "Bety",
+  "Blink",
+  "Manogê",
+  "Reyes",
+  "Edzin",
+  "LKzin",
+  "Niel",
+  "FL",
+  "Wasi",
+  "DN7",
+  "Giza",
+  "Jhones",
+  "Júnior",
+  "Piula",
+  "Smolk",
+  "Dante",
+  "Bean",
+  "LH",
+  "Menor Block",
+  "WF",
+  "PRM",
+  "Rafah Black",
+  "Dark",
+  "JF",
+  "PH",
+  "WR",
+  "Brown",
+  "Magrinho",
+  "Gusta",
+  "Yuggo",
+  "WS",
+  "MT",
+  "Teaz",
+  "Nestor",
+  "WE",
+  "DMK",
+  "Ducarmo",
+  "Ryuga",
+  "Street",
+  "Barb",
+  "Doka",
+  "Tico",
+  "Truu",
+  "Calvert",
+  "Ferrê",
+  "Góes",
+  "JC",
+  "Teusin",
+  "Ban",
+  "Biels",
+  "Jhonx",
+  "VH",
+  "VJ",
+  "Dog",
+  "Espantalho",
+  "Gênio",
+  "Kadu",
+  "Leon ZN",
+  "NJ",
+  "Noan",
+  "Pombo",
+  "Sagaz",
+  "Torres",
+  "Caverna",
+  "Davieno",
+  "FP Swag",
+  "Hendro",
+  "Lázaro",
+  "Luan UDV",
+  "WB16",
+  "Acura",
+  "Blacki",
+  "Boninho",
+  "Cacique",
+  "Caff",
+  "Carlitos",
+  "Eddy",
+  "Elle",
+  "Guinho",
+  "JL",
+  "JR",
+  "JV",
+  "Kamú",
+  "Kanope",
+  "Kzzin",
+  "Lebre",
+  "LT",
+  "Luz",
+  "Medeiro",
+  "Neto",
+  "Paiva",
+  "Pires",
+  "Reis",
+  "Ricky",
+  "Santos",
+  "Sementinha",
+  "Tarantino",
+  "WG7",
+  "Will",
+  "Woody",
+];
+
+const mcs: MC[] = nicknames.map((nickname, id) => ({ id: id + 1, nickname })); // 1-indexed
 
 interface Props {
   value: string;
@@ -21,16 +146,16 @@ interface Props {
 
 export function Form(props: Props) {
   const { value, setValue } = props;
-  const [selectedPerson, setSelectedPerson] = useState<People>({
+  const [selectedPerson, setSelectedPerson] = useState<MC>({
     id: 0,
-    name: "",
+    nickname: "",
   });
 
-  const filteredPeople =
+  const filteredmcs =
     value === ""
-      ? people
-      : people.filter((person) => {
-          return person.name.toLowerCase().includes(value.toLowerCase());
+      ? mcs
+      : mcs.filter((person) => {
+          return person.nickname.toLowerCase().includes(value.toLowerCase());
         });
 
   return (
@@ -44,7 +169,7 @@ export function Form(props: Props) {
       value={selectedPerson}
       onChange={(s) => {
         setSelectedPerson(s);
-        setValue(s.name);
+        setValue(s.nickname);
       }}
     >
       <Combobox.Label className="block text-center text-sm font-medium leading-6 text-slate-50"></Combobox.Label>
@@ -52,7 +177,7 @@ export function Form(props: Props) {
         <Combobox.Input
           className="w-full rounded-md border-0 bg-slate-900 py-1.5 pl-3 pr-10 text-slate-50 shadow-sm ring-1 ring-inset ring-slate-600 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
           onChange={(event) => setValue(event.target.value)}
-          displayValue={(person: People) => person?.name}
+          displayValue={(person: MC) => person?.nickname}
           placeholder="Big Xang"
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
@@ -62,9 +187,9 @@ export function Form(props: Props) {
           />
         </Combobox.Button>
 
-        {filteredPeople.length > 0 && (
+        {filteredmcs.length > 0 && (
           <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-slate-900 px-1 py-1 text-base shadow-lg ring-1 ring-slate-600 focus:outline-none sm:text-sm">
-            {filteredPeople.map((person) => (
+            {filteredmcs.map((person) => (
               <Combobox.Option
                 key={person.id}
                 value={person}
@@ -83,7 +208,7 @@ export function Form(props: Props) {
                         selected && "font-semibold",
                       )}
                     >
-                      {person.name}
+                      {person.nickname}
                     </span>
 
                     {selected && (

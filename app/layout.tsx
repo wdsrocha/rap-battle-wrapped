@@ -2,8 +2,8 @@ import "../styles/global.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Retrospectiva AM 2023",
-  description: "Reveja seu 2023 nas Batalhas de Rima",
+  title: "Malta 2024",
+  description: "Veja sua retrospectiva de 2024 na Batalha da Malta",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 

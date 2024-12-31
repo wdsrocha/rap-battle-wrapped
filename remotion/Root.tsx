@@ -106,7 +106,7 @@ export const RemotionRoot: React.FC = () => {
         id="RivalScene"
         component={RivalScene}
         schema={Stats}
-        durationInFrames={6 * VIDEO_FPS}
+        durationInFrames={10 * VIDEO_FPS}
         height={VIDEO_HEIGHT}
         width={VIDEO_WIDTH}
         fps={VIDEO_FPS}
