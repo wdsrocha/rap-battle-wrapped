@@ -6,7 +6,7 @@ import { Form } from "../components/Form";
 import { useRouter } from "next/navigation";
 
 const Home: NextPage = () => {
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(1);
   const router = useRouter();
   return (
     <div className="mx-auto flex h-screen max-w-lg flex-col justify-evenly px-4 py-2 md:px-6 md:py-4">
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
             Ver minha retrospectiva!
           </button>
         </div>
-        <footer className="mb-32 flex flex-col items-center gap-y-2 text-slate-300">
+        <footer className="mb-32 flex flex-col items-center gap-y-2 text-xs text-slate-300">
           <p className="text-slate-400">
             Feito com ❤️ por{" "}
             <a
