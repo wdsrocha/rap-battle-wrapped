@@ -22,6 +22,7 @@
     "@remotion/player": "4.0.83",
     "@remotion/shapes": "4.0.83",
     "@remotion/transitions": "^4.0.84",
+    "@vercel/speed-insights": "^1.1.0",
     "autoprefixer": "^10.4.16",
     "classnames": "^2.5.1",
     "next": "^13.4.13",

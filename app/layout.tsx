@@ -1,5 +1,6 @@
 import "../styles/global.css";
 import { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Malta 2024",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-dvh bg-slate-900 text-slate-50">{children}</body>
+      <body className="h-dvh bg-slate-900 text-slate-50">
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
